@@ -1,0 +1,29 @@
+import numpy as np
+import pandas as pd
+import os
+for dirname, _, filenames in os.walk('/kaggle/input'):
+    for filename in filenames:
+        print(os.path.join(dirname, filename))
+data = pd.read_csv('/content/archive.zip')
+df.head()
+plt.hist(df['Price (in USD)'], color = 'blue', edgecolor = 'black',bins=10)
+plt.title('Range of prices')
+plt.xlabel('Horsepower')
+plt.ylabel('Torque')
+data.shape
+data.info()
+data['Car Make'] = data['Car Make'].astype(str)
+data['Car Model'] = data['Car Model'].astype(str)
+data['Year'] = data['Year'].astype(str)
+data['Engine Size (L)'] = data['Engine Size (L)'].astype(str)
+data['Horsepower'] = data['Horsepower'].astype(str)
+data['Torque (lb-ft)'] = data['Torque (lb-ft)'].astype(str)
+data['0-60 MPH Time (seconds)'] = data['0-60 MPH Time (seconds)'].astype(str)
+data['Price (in USD)'] = data['Price (in USD)'].str.replace(',','')
+data['Price (in USD)'] = data['Price (in USD)'].astype(int)
+data.head()
+data.isna().sum()
+sns.heatmap(data.isna(), cmap='Greens')
+plt.show()
+sns.countplot(data=data, x='Year')
+plt.show()
